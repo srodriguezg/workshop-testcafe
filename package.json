@@ -1,0 +1,32 @@
+{
+  "name": "workshop-testcafe",
+  "version": "1.0.0",
+  "description": "This is a Workshop about TestCafe",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe chrome test/google.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srodriguezg/workshop-testcafe.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "testcafe",
+    "workshop"
+  ],
+  "author": "Santiago RG <srodriguezg@psl.com.co> (srodriguezg)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srodriguezg/workshop-testcafe/issues"
+  },
+  "homepage": "https://github.com/srodriguezg/workshop-testcafe#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.26",
+    "chai": "^4.2.0",
+    "testcafe": "^1.8.8",
+    "typescript": "^3.9.7"
+  }
+}
