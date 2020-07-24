@@ -82,7 +82,7 @@
 1. Install Chai dependencies
   `npm install --save-dev chai`
 
-1. Create a folder at the root of the project named **test** and insie the folder create a file named **google.ts**
+1. Create a folder at the root of the project named **test** and inside the folder create a file named **google.ts**
 
    ``` ts
    import { Selector } from 'testcafe';
@@ -92,7 +92,7 @@
     .page `http://www.google.com`;
 
    test('should have a title', async t => {
-     expect(Selector("title").innerText).toEqual('Google');
+     expect(await Selector("title").innerText).to.equal('Google');
    });
    ```
 
@@ -100,7 +100,7 @@
 1. Modify the scripts inside the package.json with the following information:
 
     ``` json
-    "test": "testcafe chrome test/test.ts"
+    "test": "testcafe chrome test/google.ts"
     ```
 
 1. In a console (Visual Studio Code terminal) execute `npm test` and check that the test passes successfully
@@ -109,7 +109,7 @@
 1. Create a folder named **.github** in the root of the project and inside the folder create a file named **CODEOWNERS** with the following information:
 
     ``` bash
-    * @srodrigezg
+    * @srodriguezg
     ```
 
 1. Do a commit adding all the files created with the message "setup testcafe configuration" and upload the changes to the repository
