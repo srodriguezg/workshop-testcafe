@@ -1,27 +1,27 @@
 # workshop-testcafe
 
-### Tabla de Contenido
+### Table of Contents
 
 1. [Initial project setup](#1-initial-project-setup)
 
 
 ### 1. Initial project setup
 
-**Description**: Se configurará inicialmente el proyecto con [TypeScript](https://www.typescriptlang.org/) y se hará una prueba sobre la página de [Google](https://www.google.com/). Adicionalmente se creará la configuración necesaria básica para un repositorio de [Github](https://help.github.com/)
+**Description**: We are going to configure our project with [TypeScript](https://www.typescriptlang.org/) and [TestCafé](https://devexpress.github.io/testcafe/) framework, and we are going to do a test on the [Google](https://www.google.com/) page. Additionaly we will create the necessary configuration for [Github](https://help.github.com/) repository.
 
-**Note:** Si no tiene conocimiento sobre Github se le recomienda realizar las [Guias de Github](https://guides.github.com/activities/hello-world/) o el lab de [Introduction to Github](https://lab.github.com/githubtraining/introduction-to-github)
+**Note:** If you don't have knowledge about [Github](https://help.github.com/) we recommend doing the [Github guide](https://guides.github.com/activities/hello-world/) or the [Github Introduction](https://lab.github.com/githubtraining/introduction-to-github)
 
-1. Crear una cuenta en Github si no la tiene.
-1. Crear un repositorio en limpio dentro de la página de GitHub con el nombre de “**protractor-workshop-2018**”
-1. Crear una carpeta en su computador llamada `protractor-workshop-2018` y ubicarse en ella en una consola
-1. Seguir las instrucciones para realizar el primer commit (use las que aparece en lá página de github)
+1. Create an account on Github if you don't already have it (If you already have an account created that can be userful)
+1. Create an empty Github repository with the name “**testcafe-workshop-2020**”
+1. Create a folder on you computer named `testcafe-workshop-2020` and open a console (cmd/bash) located in that folder you created 
+1. Follow the instructions below to make the first commit (use the ones that appear on the github page)
 
     ``` shell
-    echo "# protractor-workshop-2018" >> README.md
+    echo "# testcafe-workshop-2020" >> README.md
     git init
     git add README.md
     git commit -m "first commit"
-    git remote add origin git@github.com:<su-usuario>/protractor-workshop-2018.git
+    git remote add origin git@github.com:<su-usuario>/testcafe-workshop-2020.git
     git push -u origin master
     ```
 
