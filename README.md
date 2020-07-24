@@ -11,7 +11,7 @@
 
 **Note:** If you don't have knowledge about [Github](https://help.github.com/) we recommend doing the [Github guide](https://guides.github.com/activities/hello-world/) or the [Github Introduction](https://lab.github.com/githubtraining/introduction-to-github)
 
-1. Create an account on Github if you don't already have it (If you already have an account created that can be userful)
+1. Create an account on Github if you don't already have it (If you already have an account created that can be useful)
 1. Create an empty Github repository with the name “**testcafe-workshop-2020**”
 1. Create a folder on you computer named `testcafe-workshop-2020` and open a console (cmd/bash) located in that folder you created 
 1. Follow the instructions below to make the first commit (use the ones that appear on the github page)
@@ -25,26 +25,19 @@
     git push -u origin master
     ```
 
-1. En la configuración del repositorio de GitHub en la opción Branches proteja la rama Master indicando que los PR requieran revisión antes de mergear y que requiera la comprobación del estado antes de hacer merge
-1. Dentro del menú colaboradores agregar a:
-   * [germandavid85](https://github.com/germandavid85)
-   * [yesidbalvin](https://github.com/yesidbalvin)
-   * [Scot3004](https://github.com/Scot3004)
-   * [santirogu](https://github.com/santirogu)
-   * [leonleo997](https://github.com/leonleo997)
-   * [holgiosalos](https://github.com/holgiosalos)
-   * [renardete](https://github.com/renardete)
-   * [valeryibarra](https://github.com/valeryibarra)
+1. In the configuration of the Github repository in the branches option you must protect the Master branch configuring that the pull requests require to be reviewed before merging and that it requires the state check before merging
+1. In the collaborators menu add:
+   * [srodriguezg](https://github.com/srodriguezg)
 
-1. [Instalar JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) en su equipo si no lo tiene instalado
-1. [Instalar NodeJS](https://nodejs.org/es/download/package-manager/) en su equipo si no lo tiene instalado. **Nota:** Recomendamos el uso una versión igual o superio de NodeJS 6 y de NPM 5
-1. Crear una rama **project-setup** en el repositorio
+1. [Install JDK](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) on your computer if you don't have it installed
+1. [Install NodeJS](https://nodejs.org/es/download/package-manager/) on your computer if you don't have it installed. **Note:** We recommend using an equal or higher version of NodeJS 10 and NPM 6
+1. Create a new branch in you repository named **project-setup**
 
     ``` bash
     git checkout -b project-setup
     ```
 
-1. Crear el archivo .editorconfig a raíz del proyecto con la siguiente información
+1. Create the .editorconfig file at the root of the project with the following information:
 
     ```properties
     root = true
@@ -62,118 +55,70 @@
     trim_trailing_whitespace = false
     ```
 
-1. Instalar la extensión de Visual Studio Code `EditorConfig for VS Code` (Generalmente requiere reinicio del IDE)
-1. Ejecutar en una consola `npm init` dentro de la ruta donde se encuentra el repositorio y colocar la siguiente información:
+1. Install the Visual Studio Code extension named `EditorConfig for VS Code` (This requires restarting the IDE)
+1. Run in a console `npm init` inside the path where the repository is located and put the following information:
 
-   | Parametro          | Valor |
-   | ------------------ | ---------- |
-   | **Name**           | workshop-protractor                           |
-   | **Version**        | _[Por Defecto]_                               |
-   | **Description**    | This is a Workshop about Protractor           |
-   | **Entry Point**    | _[Por Defecto]_                               |
-   | **Test Command**   | `protractor dist/protractor/local.config.js`        |
-   | **Git Repository** | _[Por Defecto]_                               |
-   | **Keywords**       | ui-testing, dojo, practice, protractor        |
-   | **Author**         | _[Su nombre]_ <_[Su correo]_> (_[su github]_) |
-   | **License**        | MIT                                           |
+   | Parameter          | Value                                           |
+   | ------------------ | ----------                                      |
+   | **Name**           | workshop-testcafe                               |
+   | **Version**        | _[Default]_                                     |
+   | **Description**    | This is a Workshop about TestCafe               |
+   | **Entry Point**    | _[Default]_                                     |
+   | **Test Command**   | `testcafe chrome test.ts`                       |
+   | **Git Repository** | _[Default]_                                     |
+   | **Keywords**       | ui-testing, dojo, practice, testcafe, workshop  |
+   | **Author**         | _[Your Name]_ <_[You email]_> (_[Your github]_) |
+   | **License**        | MIT                                             |
 
-1. Instalar la dependencia de protractor
-  `npm install --save protractor`
+1. Install testcafe dependency
+  `npm install --save-dev testcafe`
 
-1. Instalar las dependencias de desarrollo de typescript
-  `npm i --save-dev typescript`
+1. Install Typescript development dependencies
+  `npm install --save-dev typescript`
 
-1. Instalar los types de NodeJS
-`npm install --save-dev @types/node`
+1. Install NodeJS types
+  `npm install --save-dev @types/node`
 
-1. Instalar los types de Jasmines
-  `npm install --save-dev @types/jasminewd2`
+1. Install Chai dependencies
+  `npm install --save-dev chai`
 
-1. Crear en la raíz del proyecto la carpeta **protractor** y dentro de ella el archivo  **local.config.ts** y agregar la siguiente información
-
-    ``` ts
-    import { Config } from 'protractor';
-
-    export const config: Config = {
-      framework: 'jasmine',
-      specs: [ '../test/google.spec.js' ],
-      seleniumAddress: 'http://localhost:4444/wd/hub'
-    };
-    ```
-
-1. Actualizar los drivers con el comando
-
-   ``` bash
-   npx webdriver-manager update
-   ```
-
-1. En la consola ejecutar
-
-   ``` bash
-   npx webdriver-manager start
-   ```
-
-1. Crear la carpeta **test** en la raíz del proyecto y dentro de la carpeta crear el archivo **google.spec.ts**
+1. Create a folder at the root of the project named **test** and insie the folder create a file named **google.ts**
 
    ``` ts
-   import { browser } from 'protractor';
+   import { Selector } from 'testcafe';
+   import { expect } from 'chai';
 
-   describe('This is the first example of protractor', () => {
-     it('should have a title', () => {
-       browser.ignoreSynchronization = true;
-       browser.get('http://www.google.com');
-       expect(browser.getTitle()).toEqual('Google');
-     });
+   fixture `This is my first test using testcafe`
+    .page `http://www.google.com`;
+
+   test('should have a title', async t => {
+     expect(Selector("title").innerText).toEqual('Google');
    });
    ```
 
-1. Crear el archivo **tsconfig.json** en la raíz del proyecto con el siguiente contenido
+
+1. Modify the scripts inside the package.json with the following information:
 
     ``` json
-    {
-      "compilerOptions": {
-        "target": "es6",
-        "sourceMap": true,
-        "outDir": "dist",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "noUnusedParameters": true,
-        "noUnusedLocals": true
-      }
-    }
+    "test": "testcafe chrome test/test.ts"
     ```
 
-1. Modificar los scripts del package.json para que tengan el siguiente contenido:
-
-    ``` json
-    "clean": "rm -rf dist",
-    "build": "npm run clean && tsc",
-    "test": "npm run build && protractor dist/protractor/local.config.js"
-    ```
-
-1. Ejecutar el comando en una segunda consola `npm test` y comprobar que la prueba pasa de forma satisfactoria
-1. Crear el archivo **.gitignore** en la raíz del proyecto. Ingresar a la página <https://www.gitignore.io/> y en el área de texto  agregar el _sistema operativo_, _IDE's_ y _NodeJS_, ejemplo _OSX Node VisualStudioCode_. Genere el archivo y cópielo dentro del archivo **.gitignore**
-1. Agregar al final del **.gitignore** las siguientes líneas
+1. In a console (Visual Studio Code terminal) execute `npm test` and check that the test passes successfully
+1. Create new file named **.gitignore** at the root of the project. Go to web <https://www.gitignore.io/> and type in the text area the _SOS_, _IDE's_ and _NodeJS_, example _Windows Node VisualStudioCode_. Generate the file and copy it into the **.gitignore** file.
+1. Create the file named **LICENSE** at the root of the project and add inside it the information of <https://en.wikipedia.org/wiki/MIT_License> (_Keep in mind to change the year and copyright holders_)
+1. Create a folder named **.github** in the root of the project and inside the folder create a file named **CODEOWNERS** with the following information:
 
     ``` bash
-    # Typescript
-    dist
+    * @srodrigezg
     ```
 
-1. Crear el archivo **LICENSE** en la raíz del proyecto con lo especificado en <https://en.wikipedia.org/wiki/MIT_License> (_Tenga en cuanta cambiar el año y el copyright holders_)
-1. Crear la carpeta a nivel de raíz llamada **.github** y dentro de ella crear el archivo **CODEOWNERS** con el siguiente contenido
-
-    ``` bash
-    * @aperdomob @germandavid85 @luigisamurai @yesidbalvin @Scot3004 @santirogu
-    ```
-
-1. Realizar un commit donde incluya los 8 archivos modificados con el mensaje “setup protractor configuration” y subir los cambios al repositorio
+1. Do a commit adding all the files created with the message "setup testcafe configuration" and upload the changes to the repository
 
     ```bash
     git add .
-    git commit -m "setup protractor configuration"
+    git commit -m "setup testcafe configuration"
     git push origin project-setup
     ```
 
-1. Crear un PR, asignarle los revisores y esperar por la aprobación o comentarios de los revisores. Si no sabe como realizarlo siga las siguientes [instrucciones](https://help.github.com/articles/creating-a-pull-request/)
-1. Una vez aprobado realizar el merge a master seleccionando la opción “squash and merge”
+1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers. If you don't know how to do this follow the [instructions](https://help.github.com/articles/creating-a-pull-request/)
+1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
