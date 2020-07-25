@@ -1,4 +1,11 @@
-# workshop-testcafe
+# Workshop TestCafe
+
+Welcome, the target of this workshop is to develop the necessary knowledge to automate E2E user interface (UI) tests using [TestCafe](https://devexpress.github.io/testcafe/). We will do practical exercises, you will understand the use of the framework to create a successful automation project. We will explain how to create a project from the begining, how to start using testcafe, and the use of Github and Gitflow for the delivery of a software product.
+
+To make this workshop without problems the student is required to have a little knowledge in the following topics:
+
+* Git (You can go to this [link](https://github.github.com/training-kit/) to see the most used commands)
+* Javascript/Typescript (basic knowledge)
 
 ### Table of Contents
 
