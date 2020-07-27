@@ -73,10 +73,10 @@
       <div class="client-logo" style="padding:15px"></div>
       <div class="bg-primary" style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">
         <h3>Summary</h3><br>
-        <p class="lead">Start Time: Sun Jul 26 2020 22:26:07 GMT-0500 (GMT-05:00)</p>
+        <p class="lead">Start Time: Sun Jul 26 2020 23:39:24 GMT-0500 (GMT-05:00)</p>
         <p class="lead">Browsers: Chrome 84.0.4147.89 / Windows 10</p>
-        <p class="lead">Duration: 3s</p>
-        <p class="lead">Tests Failed: 0 out of 1</p>
+        <p class="lead">Duration: 14s</p>
+        <p class="lead">Tests Failed: 1 out of 1</p>
         <p class="lead">Tests Skipped: 0</p>
       </div><br>
       <table class="table sortable" style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">
@@ -91,13 +91,13 @@
           </tr>
         </thead>
         <tbody>
-           <tr class="success">
+           <tr class="danger">
   <td>1</td>
-  <td>This is my first test using testcafe</td>
-  <td>should have a title</td>
+  <td>Buy a t-shirt</td>
+  <td>then should be bought a t-shirt</td>
   <td>Chrome 84.0.4147.89 / Windows 10</td>
-  <td>3s</td>
-  <td>passed</td>
+  <td>13s</td>
+  <td><a href="#test-1">failed</a></td>
  </tr>
 
         </tbody>
@@ -114,7 +114,39 @@
       </table>
       <br>
       <h3>Error Details</h3>
-      
+       <h4 id="test-1" style="color: red;">1. Buy a t-shirt - then should be bought a t-shirt</h4>
+ <pre style="padding:15px;box-shadow: 6px 6px 6px 6px #00000033;border-radius: 10px;">A JavaScript error occurred on &quot;http://automationpractice.com/index.php?id_category=5&amp;controller=category&quot;.
+Repeat test actions in the browser and check the console for errors.
+If you see this error, it means that the tested website caused it. You can fix it or disable tracking JavaScript errors in TestCafe. To do the latter, enable the &quot;--skip-js-errors&quot; option.
+If this error does not occur, please write a new issue at:
+&quot;https://github.com/DevExpress/testcafe/issues/new?template=bug-report.md&quot;.
+
+JavaScript error details:
+TypeError: Cannot read property &#39;offsetTop&#39; of undefined
+    at HTMLDocument.&lt;anonymous&gt; (http://automationpractice.com/js/jquery/plugins/fancybox/jquery.fancybox.js:44:6)
+    at j (http://automationpractice.com/js/jquery/jquery-1.11.0.min.js:3:28782)
+    at Object.fireWith [as resolveWith] (http://automationpractice.com/js/jquery/jquery-1.11.0.min.js:3:29595)
+    at Function.ready (http://automationpractice.com/js/jquery/jquery-1.11.0.min.js:3:31559)
+    at HTMLDocument.K (http://automationpractice.com/js/jquery/jquery-1.11.0.min.js:3:31904)
+
+Browser: Chrome 84.0.4147.89 / Windows 10
+
+   10 |        .typeText(Selector(&#39;#email&#39;), &#39;srodriguezg@psl.com.co&#39;)
+   11 |        .typeText(Selector(&#39;#passwd&#39;), &#39;WorkshopTestcafe&#39;)
+   12 |        .click(Selector(&#39;#SubmitLogin &gt; span&#39;))
+   13 |        .click(Selector(&#39;#block_top_menu &gt; ul &gt; li:nth-child(3) &gt; a&#39;))
+   14 |        .wait(3000)
+ &gt; 15 |        .hover(Selector(&#39;#center_column &gt; ul &gt; li &gt; div &gt; div.left-block &gt; div &gt; a.product_img_link &gt; img&#39;))
+   16 |        .click(Selector(&#39;#center_column &gt; ul &gt; li &gt; div &gt; div.right-block &gt; div.button-container &gt; a.button.ajax_add_to_cart_button.btn.btn-default &gt; span&#39;))
+   17 |        .click(Selector(&#39;#layer_cart &gt; div.clearfix &gt; div.layer_cart_cart.col-xs-12.col-md-6 &gt; div.button-container &gt; a &gt; span&#39;))
+   18 |        .click(Selector(&#39;#center_column &gt; p.cart_navigation.clearfix &gt; a.button.btn.btn-default.standard-checkout.button-medium &gt; span&#39;))
+   19 |        .click(Selector(&#39;#center_column &gt; form &gt; p &gt; button &gt; span&#39;))
+   20 |        .click(Selector(&#39;#cgv&#39;))
+
+   at &lt;anonymous&gt; (D:\Repositories\workshop-testcafe\test\buy-tshirt.ts:15:10)
+   at &lt;anonymous&gt; (D:\Repositories\workshop-testcafe\test\buy-tshirt.ts:8:71)
+   at __awaiter (D:\Repositories\workshop-testcafe\test\buy-tshirt.ts:4:12)
+   at &lt;anonymous&gt; (D:\Repositories\workshop-testcafe\test\buy-tshirt.ts:7:53) </pre><br>
     </div>
     <script>
       const modal = document.getElementById('myModal');
