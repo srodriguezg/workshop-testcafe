@@ -167,3 +167,33 @@ To make this workshop without problems the student is required to have a little 
 1. Do a commit adding all the files created with the message "chrome headless" and upload the changes to the repository.
 1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
 1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
+
+### 4. Adding Continuous Integration
+
+**Description**: Continuous integration is a required practice today, in this session we will configure travis to execute our continuous integration.
+
+1. From the master branch create a new branch named **ci**
+1. Create new file named **.nvmrc** at the root of the project and add the content `v10.10.0`
+1. Create new file named **.travis.yml** at the root of the project and add the following information
+
+ ``` yml
+    dist: trusty
+    addons:
+      chrome: stable
+    language: node_js
+    cache:
+      directories:
+        - "node_modules"
+  ```
+
+1. Enable travis in the repository <https://docs.travis-ci.com/user/getting-started/>
+1. Modify the scripts inside the package.json with the following information:
+
+    ``` json
+    "test": "testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
+    ```
+1. Do a commit adding all the files created with the message "ic travis" and upload the changes to the repository.
+1. Ensure the travis app is configured in GitHub.
+1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
+1. Verify the travis execution finished successfully.
+1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
