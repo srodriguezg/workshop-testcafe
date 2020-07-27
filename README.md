@@ -163,7 +163,7 @@ To make this workshop without problems the student is required to have a little 
     "chrome:headless": "testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
     ```
 
-1. In a console (Visual Studio Code terminal) execute `npm run chrome:healdess`, verify the browser is not going to open and check that the test passes successfully.
+1. In a console (Visual Studio Code terminal) execute `npm run chrome:headless`, verify the browser is not going to open and check that the test passes successfully.
 1. Do a commit adding all the files created with the message "chrome headless" and upload the changes to the repository.
 1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
 1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
