@@ -13,7 +13,7 @@ To make this workshop without problems the student is required to have a little 
 1. [Adding HTML report](#2-adding-html-report)
 1. [Chrome Headless](#3-chrome-headless)
 1. [Adding Continuous Integration](#4-adding-continuous-integration)
-1. [Adding Static Code Analysis](#adding-static-code-analysis)
+1. [Adding Static Code Analysis](#5-adding-static-code-analysis)
 
 
 ### 1. Initial project setup
