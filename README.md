@@ -10,6 +10,7 @@ To make this workshop without problems the student is required to have a little 
 ### Table of Contents
 
 1. [Initial project setup](#1-initial-project-setup)
+1. [Adding HTML report](#1-initial-project-setup)
 
 
 ### 1. Initial project setup
@@ -107,7 +108,7 @@ To make this workshop without problems the student is required to have a little 
 1. Modify the scripts inside the package.json with the following information:
 
     ``` json
-    "test": "testcafe chrome test/google.ts"
+    "test": "testcafe chrome test/google.ts --reporter spec"
     ```
 
 1. In a console (Visual Studio Code terminal) execute `npm test` and check that the test passes successfully
@@ -129,3 +130,23 @@ To make this workshop without problems the student is required to have a little 
 
 1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers. If you don't know how to do this follow the [instructions](https://help.github.com/articles/creating-a-pull-request/)
 1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
+
+### 2. Adding HTML report
+
+**Description**: We are going to use the [testcafe-reporter-html](https://www.npmjs.com/package/testcafe-reporter-html) dependency to add a report in HTML format and visualize our execution result better.
+
+1. From the master branch create a new branch named **adding-html-report**
+1. Install testcafe-reporter-html dependency
+  `npm install --save-dev testcafe-reporter-html`
+1. Modify the scripts inside the package.json with the following information:
+
+    ``` json
+    "test": "testcafe chrome test/google.ts --reporter spec,html:report/report.html"
+    ```
+**Note:** It is necessary to keep the **spec** in the report to be able to see in console the step by step of our test.
+
+1. In a console (Visual Studio Code terminal) execute `npm test`, check that the test passes successfully and a folder named reports is created in the root of the project, look inside the report folder and report.html must be exist, abra esto es un navegador y verifique la información.
+1. Do a commit adding all the files created with the message "adding html report" and upload the changes to the repository.
+1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
+1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
+

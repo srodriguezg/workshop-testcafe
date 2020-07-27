@@ -4,7 +4,7 @@
   "description": "This is a Workshop about TestCafe",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome test/google.ts"
+    "test": "testcafe chrome test/google.ts --reporter spec,html:report/report.html"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "@types/node": "^14.0.26",
     "chai": "^4.2.0",
     "testcafe": "^1.8.8",
+    "testcafe-reporter-html": "^1.4.6",
     "typescript": "^3.9.7"
   }
 }
