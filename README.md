@@ -11,6 +11,7 @@ To make this workshop without problems the student is required to have a little 
 
 1. [Initial project setup](#1-initial-project-setup)
 1. [Adding HTML report](#2-adding-html-report)
+1. [Chrome Headless](#3-chrome-headless)
 
 
 ### 1. Initial project setup
@@ -150,3 +151,19 @@ To make this workshop without problems the student is required to have a little 
 1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
 1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
 
+### 3. Chrome Headless
+
+**Description**: Many times we do not have continuous integration servers that have access to machines with a graphical interface. There are some browsers that have a headless version that work without a graphical interface but behave very similar to common browsers. In this session we are going to configure the headless version of chrome.
+
+1. From the master branch create a new branch named **chrome-headless**
+1. Modify the scripts inside the package.json with the following information:
+
+    ``` json
+    "chrome": "testcafe chrome test/google.ts --reporter spec,html:report/report.html",
+    "chrome:headless": "testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
+    ```
+
+1. In a console (Visual Studio Code terminal) execute `npm run chrome:healdess`, verify the browser is not going to open and check that the test passes successfully.
+1. Do a commit adding all the files created with the message "chrome headless" and upload the changes to the repository.
+1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
+1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
