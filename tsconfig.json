@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "sourceMap": true,
+        "outDir": "dist",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "types": [
+            "cucumber",
+            "node",
+            "testcafe",
+            "chai-string"
+        ],
+        "noUnusedParameters": true,
+        "noUnusedLocals": true
+    }
+}

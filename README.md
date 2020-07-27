@@ -13,6 +13,7 @@ To make this workshop without problems the student is required to have a little 
 1. [Adding HTML report](#2-adding-html-report)
 1. [Chrome Headless](#3-chrome-headless)
 1. [Adding Continuous Integration](#4-adding-continuous-integration)
+1. [Adding Static Code Analysis](#adding-static-code-analysis)
 
 
 ### 1. Initial project setup
@@ -175,7 +176,7 @@ To make this workshop without problems the student is required to have a little 
 
 1. From the master branch create a new branch named **ci**
 1. Create new file named **.nvmrc** at the root of the project and add the content `v10.10.0`
-1. Create new file named **.travis.yml** at the root of the project and add the following information
+1. Create new file named **.travis.yml** at the root of the project and add the following information:
 
  ``` yml
     dist: trusty
@@ -195,6 +196,67 @@ To make this workshop without problems the student is required to have a little 
     ```
 1. Do a commit adding all the files created with the message "ic travis" and upload the changes to the repository.
 1. Ensure the travis app is configured in GitHub.
+1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
+1. Verify the travis execution finished successfully.
+1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
+
+### 5. Adding Static Code Analysis
+
+**Description**: Static code analysis helps us standardize the way we write code, in this session we will configure tslint with airbnb to have static code analysis.
+
+1. From the master branch create a new branch named **static-code**
+1. Install [**tslint**](https://www.npmjs.com/package/tslint) dependency
+  `npm install --save-dev tslint`
+
+1. Install [**tslint-config-airbnb**](https://www.npmjs.com/package/tslint-config-airbnb) dependency
+  `npm install --save-dev tslint-config-airbnb`
+
+1. Create new file named **tslint.json** at the root of the project and add the following information:
+
+    ``` json
+    {
+      "defaultSeverity": "error",
+      "extends": [
+        "tslint-config-airbnb"
+      ],
+      "rules": {
+        "trailing-comma": [true]
+      }
+    }
+    ```
+
+1. Create new file named **tsconfig.json** at the root of the project and add the following information:
+
+    ``` json
+    {
+      "compilerOptions": {
+        "target": "es6",
+        "sourceMap": true,
+        "outDir": "dist",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "types": [
+            "cucumber",
+            "node",
+            "testcafe",
+            "chai-string"
+        ],
+        "noUnusedParameters": true,
+        "noUnusedLocals": true
+      }
+    }
+    ```
+
+1. Add the script to **package.json** `"lint": "tslint --project tsconfig.json test/*.ts"`
+1. You can fix the rules automatically by running `npm run lint -- --fix`
+1. Rules that cannot be fixed automatically investigate and fix them. Run the command `npm run lint` to verify which rules are breaking.
+1. Modify the scripts inside the package.json with the following information:
+
+    ``` json
+    "test": "npm run lint && testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
+    ```
+
+1. Do a commit adding all the files created with the message "adding tslint" and upload the changes to the repository.
 1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
 1. Verify the travis execution finished successfully.
 1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"

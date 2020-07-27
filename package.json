@@ -4,7 +4,8 @@
   "description": "This is a Workshop about TestCafe",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
+    "lint": "tslint --project tsconfig.json test/*.ts",
+    "test": "npm run lint && testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
     "chai": "^4.2.0",
     "testcafe": "^1.8.8",
     "testcafe-reporter-html": "^1.4.6",
+    "tslint": "^6.1.2",
+    "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.9.7"
   }
 }
