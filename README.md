@@ -14,6 +14,7 @@ To make this workshop without problems the student is required to have a little 
 1. [Chrome Headless](#3-chrome-headless)
 1. [Adding Continuous Integration](#4-adding-continuous-integration)
 1. [Adding Static Code Analysis](#5-adding-static-code-analysis)
+1. [Code Debug](#6-code-debug)
 
 
 ### 1. Initial project setup
@@ -260,3 +261,28 @@ To make this workshop without problems the student is required to have a little 
 1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
 1. Verify the travis execution finished successfully.
 1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
+
+### 6. Code Debug
+
+**Description**: Debugging will help us to identify and fix the parts of the code that are failing, as well as to have a better understanding of the values of the variables at runtime. TestCafe has the possibility to debug directly in the browser
+
+1. Modify the code inside the test/google.ts with the following information:
+
+   ``` ts
+   import { Selector } from 'testcafe';
+   import { expect } from 'chai';
+
+   fixture `This is my first test using testcafe`
+   .page `http://www.google.com`;
+
+   test('should have a title', async (t) => {
+     await t.debug();
+     expect(await Selector('title').innerText).to.equal('Google');
+   });
+   ```
+**Note**: In order to debug our code must not be headless, modify this value in the package.json script.
+
+1. In a console (Visual Studio Code terminal) execute `npm test`
+1. The browser will open and the test will stop, the debug options will appear at the bottom of the browser, you can also go to the code while the browser is stopped and make online code modifications.
+1. This item will not be evaluated, just keep it in mind for future developments, if you have any questions please ask a reviewer.
+   

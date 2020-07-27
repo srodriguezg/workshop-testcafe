@@ -5,5 +5,6 @@ fixture `This is my first test using testcafe`
  .page `http://www.google.com`;
 
 test('should have a title', async (t) => {
+  // await t.debug();
   expect(await Selector('title').innerText).to.equal('Google');
 });
