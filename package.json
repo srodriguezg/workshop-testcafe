@@ -4,8 +4,7 @@
   "description": "This is a Workshop about TestCafe",
   "main": "index.js",
   "scripts": {
-    "chrome": "testcafe chrome test/google.ts --reporter spec,html:report/report.html",
-    "chrome:headless": "testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
+    "test": "testcafe chrome:headless test/google.ts --reporter spec,html:report/report.html"
   },
   "repository": {
     "type": "git",
