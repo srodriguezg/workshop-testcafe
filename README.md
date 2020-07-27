@@ -145,7 +145,7 @@ To make this workshop without problems the student is required to have a little 
     ```
 **Note:** It is necessary to keep the **spec** in the report to be able to see in console the step by step of our test.
 
-1. In a console (Visual Studio Code terminal) execute `npm test`, check that the test passes successfully and a folder named reports is created in the root of the project, look inside the report folder and report.html must be exist, abra esto es un navegador y verifique la información.
+1. In a console (Visual Studio Code terminal) execute `npm test`, check that the test passes successfully and a folder named reports is created in the root of the project, look inside the report folder and report.html must be exist, open in a browser and verify the information.
 1. Do a commit adding all the files created with the message "adding html report" and upload the changes to the repository.
 1. Create a pull request (PR), assign reviewers to it and wait for approval or comments from reviewers.
 1. As soon as it is approved, please merge to the master branch by selecting the option "squash and merge"
